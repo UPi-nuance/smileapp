@@ -22,3 +22,10 @@ Edit the python script to connect to the correct IP address (e.g. "172.17.0.4") 
 
 `kubectl delete -f smileapp.k8s.yaml`
 
+## Frontend
+
+`npm install -g serve`
+ 
+`cd frontend`
+
+`serve -s .`

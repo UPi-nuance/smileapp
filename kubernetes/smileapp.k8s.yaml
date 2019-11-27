@@ -1,3 +1,12 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: smileapp-configmap
+data:
+  MICRONAUT_APPLICATION_JSON: '{"smileapp": { "apiKey": "818d5136733349908613fc791dd0ce54", "endpoint": "https://wad-face-api.cognitiveservices.azure.com/" } }'
+
+---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -24,6 +33,9 @@ spec:
         - name: smileapp
           image: smileapp
           imagePullPolicy: Never
+          envFrom:
+            - configMapRef:
+                name: smileapp-configmap
           ports:
             - containerPort: 50051
               name: "grpc-port"
