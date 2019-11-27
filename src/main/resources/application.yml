@@ -1,3 +1,6 @@
 micronaut:
   application:
     name: smileapp
+smileapp:
+  apiKey: WhatIsMyApikey
+  endpoint: https://whatismyendpoint.cognitiveservices.azure.com/

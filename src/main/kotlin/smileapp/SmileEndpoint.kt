@@ -9,7 +9,7 @@ class SmileEndpoint(
 ) : SmileServiceGrpc.SmileServiceImplBase() {
 
     override fun detectMood(request: MoodRequest, responseObserver: StreamObserver<MoodReply>) {
-        val faceData = smileService.detectMood(request.body)
+        val faceData = smileService.detectMood(request.contentType, request.body)
         val emoji = smileService.moodToEmoji(faceData.mood)
         val reply = MoodReply.newBuilder()
                 .setMood(faceData.mood.toString())
@@ -22,8 +22,8 @@ class SmileEndpoint(
                         .build()
                 )
                 .build()
-
         responseObserver.onNext(reply)
         responseObserver.onCompleted()
     }
+
 }
