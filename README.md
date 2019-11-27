@@ -29,3 +29,9 @@ Edit the python script to connect to the correct IP address (e.g. "172.17.0.4") 
 `cd frontend`
 
 `serve -s .`
+
+# Ingress
+
+`minikube addons enable ingress`
+
+
