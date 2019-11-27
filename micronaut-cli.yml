@@ -1,0 +1,5 @@
+profile: grpc
+defaultPackage: smileapp
+---
+testFramework: kotlintest
+sourceLanguage: kotlin

@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "smileapp";
+option java_outer_classname = "SmileProto";
+option objc_class_prefix = "HLW";
+
+package smileapp;
+
+service SmileService {
+  rpc detectMood (MoodRequest) returns (MoodReply) {}
+}
+
+message MoodRequest {
+  string contentType = 1;
+  bytes body = 2;
+}
+
+message MoodReply {
+  string mood = 1;
+  string emoji = 2;
+  Rect rect = 3;
+}
+
+message Rect {
+  uint32 x = 1;
+  uint32 y = 2;
+  uint32 width = 3;
+  uint32 height = 4;
+}
